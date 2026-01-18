@@ -7,8 +7,12 @@ opacity = 1.0
 #normal = { family = "FiraCode Nerd Font Mono", style = "Light" }
 normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
 bold = { family = "FiraCode Nerd Font Mono", style = "Bold" }
+
+{{- if eq .chezmoi.os "darwin" }}
+size = 10.4
+{{- else if eq .chezmoi.os "linux" }}
 size = 8.6
-#size = 10.4
+{{- end }}
 
 [font.glyph_offset]
 x = 1 # Moves glyphs to the right
