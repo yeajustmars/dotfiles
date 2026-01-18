@@ -1,0 +1,24 @@
+#!/usr/bin/env bash
+
+# TODO: look into excluding yabai dir entirely for Linux
+
+{{ if eq .chezmoi.os "darwin" }}
+yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
+sudo yabai --load-sa
+
+yabai -m config layout bsp
+
+yabai -m config top_padding    4
+yabai -m config bottom_padding 4
+yabai -m config left_padding   4
+yabai -m config right_padding  4
+yabai -m config window_gap     4
+
+yabai -m config window_shadow float
+
+yabai -m config window_opacity on
+yabai -m config active_window_opacity 1.0
+yabai -m config normal_window_opacity 0.9
+
+borders active_color=0xff660bb5 inactive_color=0xff494d64 hidpi=off width=2.0 style=round &
+{{ end }}
