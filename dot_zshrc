@@ -1,6 +1,7 @@
 
 export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:/usr/sbin:/usr/local/bin:$PATH"
 export EDITOR="nvim"
+export TERM="alacritty"
 
 alias r="source ~/.zshrc"
 alias vi="nvim"
