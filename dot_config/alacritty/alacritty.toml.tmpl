@@ -1,7 +1,11 @@
 [window]
 padding.x = 5
 padding.y = 0
+{{- if eq .chezmoi.os "darwin" }}
+opacity = 0.9
+{{- else }}
 opacity = 1.0
+{{- end }}
 
 [font]
 #normal = { family = "FiraCode Nerd Font Mono", style = "Light" }
