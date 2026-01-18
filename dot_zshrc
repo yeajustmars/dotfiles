@@ -1,0 +1,9 @@
+
+export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:/usr/sbin:/usr/local/bin:$PATH"
+export EDITOR="nvim"
+
+alias r="source ~/.zshrc"
+alias vi="nvim"
+alias vim="nvim"
+
+eval "$(starship init zsh)"
