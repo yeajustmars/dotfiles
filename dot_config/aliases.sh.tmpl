@@ -101,3 +101,12 @@ up() {
 
     cd "$dir" || { echo "Error: Cannot go up $count directories."; return 1; }
 }
+
+env-save() {
+  chezmoi cd && git commit -a && git push origin main
+}
+
+env-sync() {
+  cd
+  chezmoi apply -v
+}
