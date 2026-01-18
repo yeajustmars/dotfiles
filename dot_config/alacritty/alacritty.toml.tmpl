@@ -8,10 +8,10 @@ opacity = 1.0
 normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
 bold = { family = "FiraCode Nerd Font Mono", style = "Bold" }
 
-{{- if eq .chezmoi.os "darwin" }}
-size = 12.0
-{{- else if eq .chezmoi.os "linux" }}
+{{- if eq .chezmoi.os "linux" }}
 size = 8.6
+{{- else }}
+size = 12.0
 {{- end }}
 
 [font.glyph_offset]
