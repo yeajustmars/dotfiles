@@ -1,3 +1,4 @@
+alias dev="cd $HOME/dev"
 alias h="history"
 alias hg="history | grep "
 alias j="jobs"
@@ -100,5 +101,3 @@ up() {
 
     cd "$dir" || { echo "Error: Cannot go up $count directories."; return 1; }
 }
-
-alias dev="cd ~/dev"
