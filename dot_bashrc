@@ -72,27 +72,8 @@ xterm*|rxvt*)
     ;;
 esac
 
-# enable color support of ls and also add handy aliases
-if [ -x /usr/bin/dircolors ]; then
-    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
-    alias ls='ls --color=auto'
-    alias dir='dir --color=auto'
-    alias vdir='vdir --color=auto'
-
-    alias grep='grep --color=auto'
-    alias fgrep='fgrep --color=auto'
-    alias egrep='egrep --color=auto'
-fi
-
 # colored GCC warnings and errors
 export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
-# some more ls aliases
-alias ll='ls -l'
-alias la='ls -A'
-alias l='ls -CF'
-
-alias eac="vi ~/.config/alacritty/alacritty.toml"
 
 # Alias definitions.
 # You may want to put all your additions into a separate file like
@@ -102,6 +83,10 @@ alias eac="vi ~/.config/alacritty/alacritty.toml"
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
+
+source ~/.config/env.sh
+source ~/.config/format.sh
+source ~/.config/aliases.sh
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
@@ -114,161 +99,12 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export NVIM_PATH="/home/mars/bin/nvim-linux-x86_64.appimage"
-alias nvim="$NVIM_PATH"
-alias vi="$NVIM_PATH"
-export EDITOR="$NVIM_PATH"
-
-
 export PATH="/home/mars/bin:$PATH"
-
-BOLD='\033[1m'
-ITAL='\033[3m'
-BLUE='\033[0;34m'
-RED='\033[0;31m'
-CYAN='\033[0;36m'
-GREEN='\033[0;32m'
-ORANGE='\033[0;33m'
-PURPLE='\033[0;35m'
-DARKGRAY='\033[1;30m'
-LIGHTGRAY='\033[0;37m'
-NC='\033[0m'
-
-DEBUG="${PURPLE}[DEBUG]${NC}"
-ERROR="${RED}[ERROR]${NC}"
-HINT="${CYAN}[HINT]${NC}"
-INFO="${BLUE}[INFO]${NC}"
-OK="${GREEN}[OK]${NC}"
-WARN="${GREEN}[WARNING]${NC}"
-
-stgrep() {
-  local args="$@"
-  local cur_dir="$PWD"
-
-  cd $ST_ROOT_DIR
-
-  grep -rH \
-    --exclude=.DS_Store \
-    --exclude=.rebel_readline_history \
-    --exclude-dir=.git \
-    --exclude-dir=.cpcache \
-    --exclude-dir=.clj-kondo \
-    --exclude-dir=.lsp \
-    --exclude-dir=.shadow_cljs \
-    --exclude-dir=classes \
-    --exclude-dir=docs \
-    --exclude-dir=st-docs \
-    --exclude-dir=**node_modules** \
-    --exclude-dir=**bower** \
-    --exclude-dir=**target** \
-    $args
-
-  cd $cur_dir
-}
-
-lightrepl() {
-  echo '{:color-theme :light-screen-theme}' > ~/.clojure/rebel_readline.edn
-}
-
-darkrepl() {
-  echo '{:color-theme :dark-screen-theme}' > ~/.clojure/rebel_readline.edn
-}
-
-r() { source ~/.bashrc; }
-
-dev() {
-  cd ~/dev
-}
-
-up() {
-    local count=$1
-    local dir=""
-
-    if [ -z "$count" ]; then
-        count=1
-    fi
-
-    for i in $(seq 1 $count); do
-        dir+="../"
-    done
-
-    cd "$dir" || { echo "Error: Cannot go up $count directories."; return 1; }
-}
 
 . "$HOME/.cargo/env"
 export RUST_ENV_IS_DEV="true"
 
-alias l="ls -lhG"
-alias python="python3"
-alias py="python3"
-alias rustrepl="evcxr"
-alias j="jobs"
-alias h="history"
-alias hg="history | grep "
-
-alias com="git checkout main"
-alias coma="git commit -a"
-alias b="git branch"
-
-gpush() {
-  git push origin "$(git branch --show-current)"
-}
-
-gpull() {
-  git pull origin "$(git branch --show-current)"
-}
-
-bm() {
-  if [ -n "$1" ]; then
-    local pkg=$( [[ "$1" =~ ^boilermaker_ ]] && echo "$1" || echo "boilermaker_$1" )
-    local dir="$HOME/dev/boilermaker/packages/$pkg"
-    if [ -d "$dir" ]; then
-      cd "$dir"
-    else
-      echo -e "$ERROR Directory '$dir' does not exist."
-      return 1
-    fi
-  else
-    cd ~/dev/boilermaker/
-  fi
-  return 0
-}
-
-alias cdb="cd ~/dev/boilermaker/"
-
-alias cdr="cd ~/dev/archivo/"
-alias lgr="cd ~/dev/live-bootcamp-project/"
-alias t="cd ~/dev/tectonic"
-alias cdx="cd ~/dev/pickaxe"
-alias cdo="cd ~/dev/oaxacarocks/"
-alias cdp="cd ~/dev/potamic"
-alias lsb="ls -lh ~/.boilermaker/templates"
-alias cdgms="cd ~/dev/aurum-gms/"
-
-export ST_ROOT_DIR="/home/mars/dev/st"
-export ST_MAVEN_DIR="/home/mars/.m2"
-export ST_DATA_DIR="$ST_ROOT_DIR/__data__"
-export ST_TIER="local"
-export ST_CLUSTER="local"
-export ST_NODE_ROLE="local"
-export ST_CLI_VERSION="v2"
-export ST_CLI_LOGO_FORMAT="small"
-export ST_CLI_LOGO_COLOR='BOLD'
-export ST_CLI_CMD_COLOR='BOLD'
-export ST_CLI_DOCS_DIR="${ST_ROOT_DIR}/st-docs/rtfm"
-export ST_ROOT_DEVOPS_DIR="/home/mars/dev/st-devops"
-export ST_JACK_HENRY_TEST_ACCOUNT="chadangelelli"
-
-source $ST_ROOT_DIR/st-cli/v2/autocomplete.bash
-
-st() {
-    cur_dir="$PWD"
-    cd $ST_ROOT_DIR
-    source ./st-cli/${ST_CLI_VERSION}/cli.sh "$cur_dir" "$@"
-}
-
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

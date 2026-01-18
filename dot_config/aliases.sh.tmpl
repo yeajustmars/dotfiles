@@ -1,0 +1,102 @@
+alias h="history"
+alias hg="history | grep "
+alias j="jobs"
+alias l="ls -lhG"
+alias la='ls -A'
+alias ll='ls -l'
+alias py="python3"
+alias python="python3"
+alias rustrepl="evcxr"
+
+alias b="git branch"
+alias com="git checkout main"
+alias coma="git commit -a"
+
+gpush() {
+  git push origin "$(git branch --show-current)"
+}
+
+gpull() {
+  git pull origin "$(git branch --show-current)"
+}
+
+alias cdb="cd ~/dev/boilermaker/"
+bm() {
+  if [ -n "$1" ]; then
+    local pkg=$( [[ "$1" =~ ^boilermaker_ ]] && echo "$1" || echo "boilermaker_$1" )
+    local dir="$HOME/dev/boilermaker/packages/$pkg"
+    if [ -d "$dir" ]; then
+      cd "$dir"
+    else
+      echo -e "$ERROR Directory '$dir' does not exist."
+      return 1
+    fi
+  else
+    cd ~/dev/boilermaker/
+  fi
+  return 0
+}
+
+{{ if eq .chezmoi.os "linux" }}
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/dircolors ]; then
+    test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
+    alias ls='ls --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
+
+    alias grep='grep --color=auto'
+    alias fgrep='fgrep --color=auto'
+    alias egrep='egrep --color=auto'
+fi
+{{ end }}
+
+{{ if eq .chezmoi.hostname "marsnix" }}
+alias nvim="$NVIM_PATH"
+alias vi="$NVIM_PATH"
+export EDITOR="$NVIM_PATH"
+{{ else if eq .chezmoi.os "darwin" }}
+alias vi="nvim"
+alias vim="nvim"
+{{ end }}
+
+{{ if eq .chezmoi.os "linux" }}
+r() { source ~/.bashrc; }
+{{ else if eq .chezmoie.os "darwin" }}
+alias r="source ~/.zshrc"
+{{ end }}
+
+st() {
+    cur_dir="$PWD"
+    cd $ST_ROOT_DIR
+    source ./st-cli/${ST_CLI_VERSION}/cli.sh "$cur_dir" "$@"
+}
+
+{{- if eq .chezmoi.os "linux" }}
+source $ST_ROOT_DIR/st-cli/v2/autocomplete.bash
+{{- end }}
+
+{{ if eq .chezmoi.os "linux" }}
+lightrepl() {
+  echo '{:color-theme :light-screen-theme}' > ~/.clojure/rebel_readline.edn
+}
+
+darkrepl() {
+  echo '{:color-theme :dark-screen-theme}' > ~/.clojure/rebel_readline.edn
+}
+{{ end }}
+
+up() {
+    local count=$1
+    local dir=""
+
+    if [ -z "$count" ]; then
+        count=1
+    fi
+
+    for i in $(seq 1 $count); do
+        dir+="../"
+    done
+
+    cd "$dir" || { echo "Error: Cannot go up $count directories."; return 1; }
+}

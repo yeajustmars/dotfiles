@@ -3,8 +3,8 @@ export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:/usr/sbin:/usr/local/b
 export EDITOR="nvim"
 export TERM="alacritty"
 
-alias r="source ~/.zshrc"
-alias vi="nvim"
-alias vim="nvim"
+source ~/.config/env.sh
+source ~/.config/format.sh
+source ~/.config/aliases.sh
 
 eval "$(starship init zsh)"
