@@ -1,0 +1,75 @@
+[window]
+padding.x = 5
+padding.y = 0
+opacity = 1.0
+
+[font]
+#normal = { family = "FiraCode Nerd Font Mono", style = "Light" }
+normal = { family = "FiraCode Nerd Font Mono", style = "Regular" }
+bold = { family = "FiraCode Nerd Font Mono", style = "Bold" }
+size = 8.6
+#size = 10.4
+
+[font.glyph_offset]
+x = 1 # Moves glyphs to the right
+y = 1 # Moves glyphs down
+
+[general]
+
+# Light
+
+#import = ["~/.config/alacritty/themes/ashes_light.toml"]
+#import = ["~/.config/alacritty/themes/ayu_light.toml"]
+#import = ["~/.config/alacritty/themes/enfocado_light.toml"]
+#import = ["~/.config/alacritty/themes/everforest_light.toml"]
+#import = ["~/.config/alacritty/themes/github_light_colorblind.toml"]
+#import = ["~/.config/alacritty/themes/github_light_default.toml"]
+#import = ["~/.config/alacritty/themes/github_light_high_contrast.toml"]
+#import = ["~/.config/alacritty/themes/github_light.toml"]
+#import = ["~/.config/alacritty/themes/github_light_tritanopia.toml"]
+#import = ["~/.config/alacritty/themes/gruvbox_light.toml"]
+#import = ["~/.config/alacritty/themes/gruvbox_material_hard_light.toml"]
+#import = ["~/.config/alacritty/themes/gruvbox_material_medium_light.toml"]
+#import = ["~/.config/alacritty/themes/kimbie_light.toml"]
+#import = ["~/.config/alacritty/themes/night_owlish_light.toml"]
+#import = ["~/.config/alacritty/themes/nord_light.toml"]
+#import = ["~/.config/alacritty/themes/one_light.toml"]
+#import = ["~/.config/alacritty/themes/papercolor_light.toml"]
+#import = ["~/.config/alacritty/themes/pencil_light.toml"]
+#import = ["~/.config/alacritty/themes/selenized_light.toml"]
+#import = ["~/.config/alacritty/themes/seoul256-light.toml"]
+#import = ["~/.config/alacritty/themes/solarized_light.toml"]
+
+# Dark
+
+#import = ["~/.config/alacritty/themes/moonlight_ii_vscode.toml"]
+#import = [ "~/.config/alacritty/themes/ashes_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/catppuccin.toml" ]
+#import = ["~/.config/alacritty/themes/citylights.toml"]
+#import = [ "~/.config/alacritty/themes/dracula.toml" ]
+#import = [ "~/.config/alacritty/themes/everforest_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/flexoki.toml" ]
+#import = [ "~/.config/alacritty/themes/github_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/github_dark_dimmed.toml" ]
+#import = [ "~/.config/alacritty/themes/gruvbox_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/gruvbox_material_hard_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/gruvbox_material_medium_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/gruvbox_material.toml" ]
+#import = [ "~/.config/alacritty/themes/one_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/pastel_dark.toml" ]
+import = [ "~/.config/alacritty/themes/nord.toml" ]
+#import = [ "~/.config/alacritty/themes/solarized_dark.toml" ]
+#import = [ "~/.config/alacritty/themes/zenburn.toml" ]
+
+
+[scrolling]
+history = 100000
+multiplier = 3
+#auto_scroll = false
+
+[env]
+TERM = "xterm-256color"
+
+[terminal.shell]
+program = "/usr/bin/bash"
+args = [ "-c", "/home/mars/script/alacritty-startup.sh" ]
