@@ -18,7 +18,7 @@ yabai -m config window_shadow float
 
 yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
-yabai -m config normal_window_opacity 0.9
+yabai -m config normal_window_opacity 1.0
 
 borders active_color=0xff660bb5 inactive_color=0xff494d64 hidpi=off width=2.0 style=round &
 {{ end }}
