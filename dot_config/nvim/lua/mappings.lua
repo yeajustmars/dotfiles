@@ -47,3 +47,9 @@ map("n", "<Leader>dt", "<cmd>lua vim.cmd('RustLsp testables')<CR>",
 -- clojure*
 map("n", "<C-j>", "<cmd>ALENextWrap<CR>")
 map("n", "<C-k>", "<cmd>ALEPreviousWrap<CR>")
+
+local tele = require('telescope.builtin')
+vim.keymap.set('n', '<leader>ff', tele.find_files, { desc = 'Telescope find files' })
+vim.keymap.set('n', '<leader>fg', tele.live_grep, { desc = 'Telescope live grep' })
+vim.keymap.set('n', '<leader>fb', tele.buffers, { desc = 'Telescope buffers' })
+vim.keymap.set('n', '<leader>fh', tele.help_tags, { desc = 'Telescope help tags' })
