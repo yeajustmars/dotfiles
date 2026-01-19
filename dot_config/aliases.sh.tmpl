@@ -1,3 +1,7 @@
+
+alias b="git branch"
+alias com="git checkout main"
+alias coma="git commit -a"
 alias dev="cd $HOME/dev"
 alias h="history"
 alias hg="history | grep "
@@ -8,10 +12,7 @@ alias ll='ls -l'
 alias py="python3"
 alias python="python3"
 alias rustrepl="evcxr"
-
-alias b="git branch"
-alias com="git checkout main"
-alias coma="git commit -a"
+alias z="chezmoi edit $@"
 
 gpush() {
   git push origin "$(git branch --show-current)"
@@ -110,3 +111,4 @@ env-sync() {
   cd
   chezmoi apply -v
 }
+
