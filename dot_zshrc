@@ -1,5 +1,5 @@
 
-export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:/usr/sbin:/usr/local/bin:$PATH"
+export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:/usr/sbin:/usr/local/bin:/home/bin:$PATH"
 export EDITOR="nvim"
 export TERM="alacritty"
 
