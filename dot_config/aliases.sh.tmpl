@@ -78,7 +78,6 @@ st() {
 source $ST_ROOT_DIR/st-cli/v2/autocomplete.bash
 {{- end }}
 
-{{ if eq .chezmoi.os "linux" }}
 lightrepl() {
   echo '{:color-theme :light-screen-theme}' > ~/.clojure/rebel_readline.edn
 }
@@ -86,7 +85,6 @@ lightrepl() {
 darkrepl() {
   echo '{:color-theme :dark-screen-theme}' > ~/.clojure/rebel_readline.edn
 }
-{{ end }}
 
 up() {
     local count=$1
