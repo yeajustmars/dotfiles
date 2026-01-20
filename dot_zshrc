@@ -1,5 +1,8 @@
 
 export PATH="/run/current-system/sw/bin:/opt/homebrew/bin:/usr/sbin:/usr/local/bin:/home/bin:$PATH"
+export PATH=/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib:$PATH
+export LIBRARY_PATH="$LIBRARY_PATH:/Library/Developer/CommandLineTools/SDKs/MacOSX.sdk/usr/lib"
+
 export EDITOR="nvim"
 export TERM="alacritty"
 
