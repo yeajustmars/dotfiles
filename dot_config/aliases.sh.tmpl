@@ -18,10 +18,6 @@ alias python="python3"
 alias rustrepl="evcxr"
 alias z="chezmoi $@"
 
-{{- if eq .chezmoi.os "darwin" }}
-compdef kubecolor=kubectl
-{{- end }}
-
 gpush() {
   git push origin "$(git branch --show-current)"
 }

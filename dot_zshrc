@@ -15,6 +15,9 @@ autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
 
+source <(kubectl completion zsh)
+compdef kubecolor=kubectl
+
 source "$ST_ROOT_DIR/st-cli/$ST_CLI_VERSION/autocomplete.bash"
 
 eval "$(starship init zsh)"
