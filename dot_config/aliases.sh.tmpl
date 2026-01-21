@@ -6,6 +6,10 @@ alias dev="cd $HOME/dev"
 alias h="history"
 alias hg="history | grep "
 alias j="jobs"
+{{- if eq .chezmoi.os "darwin" }}
+alias k='kubecolor'
+alias kubectl='kubecolor'
+{{- end }}
 alias l="ls -lhG"
 alias la='ls -A'
 alias ll='ls -l'
@@ -13,6 +17,10 @@ alias py="python3"
 alias python="python3"
 alias rustrepl="evcxr"
 alias z="chezmoi $@"
+
+{{- if eq .chezmoi.os "darwin" }}
+compdef kubecolor=kubectl
+{{- end }}
 
 gpush() {
   git push origin "$(git branch --show-current)"

@@ -5,6 +5,7 @@ export LIBRARY_PATH="$LIBRARY_PATH:/Library/Developer/CommandLineTools/SDKs/MacO
 
 export EDITOR="nvim"
 export TERM="alacritty"
+export XDG_CONFIG_HOME="/Users/mars/.config"
 
 source ~/.config/env.sh
 source ~/.config/format.sh
