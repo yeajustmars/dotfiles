@@ -58,7 +58,14 @@ vim.schedule(function()
   require "mappings"
 end)
 
+vim.g.nvim_tree_respect_buf_cwd = 1
 require("nvim-tree").setup({
+  view = { relativenumber = true },
+  update_focused_file = {
+    enable = true,
+    update_cwd = false,
+    ignore_list = {},
+  },
   diagnostics = {
     enable = true,
     icons = {
