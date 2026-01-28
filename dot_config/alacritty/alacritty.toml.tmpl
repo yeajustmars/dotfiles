@@ -86,5 +86,10 @@ args = [ "-c", "/home/mars/script/alacritty-startup.sh" ]
 
 [[keyboard.bindings]]
 key = "["
-mods = "Alt|Shift"
+mods = "Control|Alt"
 action = "ClearHistory"
+
+[[keyboard.bindings]]
+key = "]"
+mods = "Control|Alt"
+chars = "\f" # \f is the TOML escape for Form Feed (\x0C)
