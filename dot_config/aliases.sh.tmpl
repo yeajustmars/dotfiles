@@ -15,6 +15,9 @@ alias kubectl='kubecolor'
 alias l="ls -lhG"
 alias la='ls -A'
 alias ll='ls -l'
+{{- if eq .chezmoi.os "darwin" }}
+alias nr="sudo darwin-rebuild switch"
+{{- end }}
 alias py="python3"
 alias python="python3"
 alias rustrepl="evcxr"
