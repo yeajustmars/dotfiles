@@ -4,6 +4,9 @@ alias com="git checkout main"
 alias coma="git commit -a"
 alias dev="cd $HOME/dev"
 alias ea="nvim ~/.config/alacritty/alacritty.toml"
+{{- else if eq .chezmoi.os "darwin" }}
+alias ep="nvim /etc/nix-darwin/modules/packages.nix"
+{{- end }}
 alias h="history"
 alias hg="history | grep "
 alias j="jobs"
