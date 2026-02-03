@@ -101,8 +101,12 @@ fi
 
 export PATH="/home/mars/bin:$PATH"
 
-. "$HOME/.cargo/env"
 export RUST_ENV_IS_DEV="true"
+
+CARGO_BIN="$HOME/.cargo/env"
+if [ -d "$CARGO_BIN "]; then
+. $CARGO_BIN
+fi
 
 eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
 
