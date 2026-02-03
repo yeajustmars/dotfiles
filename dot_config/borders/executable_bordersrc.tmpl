@@ -4,16 +4,14 @@
 
 {{ if eq .chezmoi.os "darwin" }}
 ## See yabai/yabairc for bootstrapped command
-## TODO: use this config file from there
 
-#options=(
-#	#style=round
-#	style=square
-#	width=3.0
-#	hidpi=off
-#	active_color=0xff660bb5
-#	inactive_color=0xff414550
-#)
-#
-#borders "${options[@]}"
+options=(
+	style=square # | round
+	width=3.0
+	hidpi=off
+	active_color=0xff660bb5
+	inactive_color=0xff414550
+)
+
+borders "${options[@]}"
 {{ end }}
