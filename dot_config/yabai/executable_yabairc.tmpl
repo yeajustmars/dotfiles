@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# TODO: look into excluding yabai dir entirely for Linux
-
 {{ if eq .chezmoi.os "darwin" }}
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
@@ -20,7 +18,7 @@ yabai -m config window_opacity on
 yabai -m config active_window_opacity 1.0
 yabai -m config normal_window_opacity 1.0
 
-# NOTE: uncomment to start JankyBorders
+# JankyBorders
 # NOTE: start w/o options to use config file ~/.config/borders/bordersrc
 #borders active_color=0xff660bb5 inactive_color=0xff494d64 hidpi=off width=2.0 style=round &
 borders &
