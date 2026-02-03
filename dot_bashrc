@@ -105,12 +105,13 @@ export RUST_ENV_IS_DEV="true"
 
 CARGO_BIN="$HOME/.cargo/env"
 if [ -d "$CARGO_BIN "]; then
-. $CARGO_BIN
+  . $CARGO_BIN
 fi
 
-if [ -d "/home/linuxbrew/" ]; then
-  eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
-fi
+#BREW_BIN="/home/linuxbrew/.linuxbrew/bin"
+#if [ -d "$BREW_BIN" ]; then
+#  eval "$($BREW_BIN/brew shellenv)"
+#fi
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
