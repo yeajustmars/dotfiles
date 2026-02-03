@@ -77,8 +77,11 @@ st() {
     source ./st-cli/${ST_CLI_VERSION}/cli.sh "$cur_dir" "$@"
 }
 
+ST_AUTOCOMPLETE="$ST_ROOT_DIR/st-cli/v2/autocomplete.bash"
 {{- if eq .chezmoi.os "linux" }}
-source $ST_ROOT_DIR/st-cli/v2/autocomplete.bash
+if [ -f "$ST_AUTOCOMPLETE" ]; then
+  source $ST_AUTOCOMPLETE
+fi
 {{- end }}
 
 lightrepl() {
