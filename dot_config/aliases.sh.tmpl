@@ -24,6 +24,9 @@ alias rustrepl="evcxr"
 alias t="cd $HOME/dev/tectonic"
 alias vi="nvim"
 alias vim="nvim"
+{{- if eq .chezmoi.os "darwin" }}
+alias yr='yabai --restart-service'
+{{- end }}
 alias z="chezmoi $@"
 
 gpush() {
