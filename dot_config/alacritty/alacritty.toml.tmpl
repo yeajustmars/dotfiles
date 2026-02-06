@@ -4,7 +4,7 @@ padding.y = 0
 {{- if eq .chezmoi.os "darwin" }}
 opacity = 1.0
 {{- else }}
-opacity = 1.0
+opacity = 0.90
 {{- end }}
 
 [font]
@@ -23,7 +23,11 @@ x = 1 # Moves glyphs to the right
 y = 1 # Moves glyphs down
 
 [general]
-
+{{- if eq .chezmoi.os "linux" }}
+import = [
+    "~/.config/alacritty/theme.toml"
+]
+{{- else }}
 # Light themes
 
 #import = ["~/.config/alacritty/themes/ashes_light.toml"]
@@ -68,7 +72,7 @@ import = ["~/.config/alacritty/themes/seoul256-light.toml"]
 #import = [ "~/.config/alacritty/themes/wombat.toml" ]
 #import = [ "~/.config/alacritty/themes/vscode.toml" ]
 #import = [ "~/.config/alacritty/themes/zenburn.toml" ]
-
+{{- end }}
 
 [scrolling]
 history = 100000
