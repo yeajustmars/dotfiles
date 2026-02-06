@@ -1,6 +1,9 @@
 
 alias b="git branch"
 alias cda="cd ~/dev/aurum"
+{{- if eq .chezmoi.os "linux" }}
+alias cdh="cd ~/hydenix"
+{{- end }}
 alias com="git checkout main"
 alias coma="git commit -a"
 alias dev="cd $HOME/dev"
