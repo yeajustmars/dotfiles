@@ -1,11 +1,6 @@
 { lib, pkgs, self, ... }:
 
 {
-  imports = [
-    # ./example.nix - add your modules here
-    ./fonts.nix
-  ];
-
   environment.systemPackages = with pkgs; [
     alacritty
     babashka
@@ -18,6 +13,8 @@
     ghostty
     git
     gnupg
+    hypridle
+    hyprlock
     jdk21
     jupyter
     k9s
@@ -37,9 +34,11 @@
     ripgrep
     rustup
     spicetify-cli
+    spotify
     sqlite
     starship
     tmux
     tree
   ];
 }
+

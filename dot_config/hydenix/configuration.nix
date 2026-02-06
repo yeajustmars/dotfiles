@@ -42,24 +42,6 @@
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
- #services.kanshi = {
- #  enable = true;
- #  systemdTarget = "graphical-session.target"; # Or hyprland-session.target
- #  profiles = {
- #    undocked = {
- #      outputs = [
- #        { criteria = "eDP-1"; scale = 1.0; status = "enable"; }
- #      ];
- #    };
- #    docked = {
- #      outputs = [
- #        { criteria = "eDP-1"; status = "disable"; }
- #        { criteria = "HDMI-A-1"; mode = "3840x1080@59.96800"; position = "0,0"; scale = 1.0; }
- #      ];
- #    };
- #  };
- #};
-
   # Home Manager Configuration - manages user-specific configurations (dotfiles, themes, etc.)
   home-manager = {
     useGlobalPkgs = true;
