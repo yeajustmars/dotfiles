@@ -1,0 +1,23 @@
+output "BOE 0x0B38 0x00000003" {
+  alias $LAPTOP_BUILTIN
+  mode 2560x1600@165.00200
+  position 0,0
+  scale 1.60
+}
+
+output "Samsung Electric Company C49HG9x HNTR500199" {
+  alias $ODYSSEY_EXTERNAL
+  mode 3840x1080@59.96800
+  position 0,0
+  scale 1.0
+}
+
+profile external_only {
+  output $LAPTOP_BUILTIN disable
+  output $ODYSSEY_EXTERNAL enable
+}
+
+profile internal_only {
+  output $LAPTOP_BUILTIN enable
+  output $ODYSSEY_EXTERNAL disable
+}
