@@ -1,3 +1,7 @@
+# DOCUMENTATION:
+#
+# Visit https://github.com/richen604/hydenix/blob/main/docs/options.md for more options
+#
 { ... }:
 
 {
@@ -12,6 +16,16 @@
   ];
 
   # hydenix home-manager options go here
-  hydenix.hm.enable = true;
-  # Visit https://github.com/richen604/hydenix/blob/main/docs/options.md for more options
+  hydenix.hm = {
+    enable = true;
+
+  #hyprland.extraConfig = ''
+  #  exec-once = kanshi -c ~/.config/kanshi/config
+  #'';
+
+  #hyprland.keybindings.extraConfig = ''
+  #  bind = $mainMod SHIFT, K, exec,hyprctl dispatch exec kanshictl reload
+  #'';
+
+  };
 }

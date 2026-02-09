@@ -27,6 +27,7 @@
   ];
 
   # If enabling NVIDIA, you will be prompted to configure hardware.nvidia
+  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
   hardware.nvidia = {
     open = true; # For newer cards, you may want open drivers
     prime = { # For hybrid graphics (laptops), configure PRIME:
@@ -37,10 +38,15 @@
 
       offload.enable = false; # Or disable PRIME offloading if you don't care
     };
+    modesetting.enable = true;
+    powerManagement.enable = true;
+    nvidiaSettings = true;
   };
 
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
+
+  services.power-profiles-daemon.enable = true;
 
   # Home Manager Configuration - manages user-specific configurations (dotfiles, themes, etc.)
   home-manager = {
@@ -62,7 +68,7 @@
   # User Account Setup - REQUIRED: Change "hydenix" to your desired username (must match above)
   users.users.mars = {
     isNormalUser = true;
-    initialPassword = "hydenix"; # SECURITY: Change this password after first login with `passwd`
+    initialPassword = "passwd"; # SECURITY: Change this password after first login with `passwd`
     extraGroups = [
       "wheel"
       "networkmanager"
