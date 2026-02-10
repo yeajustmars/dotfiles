@@ -33,7 +33,7 @@
         $hc=Hardware Controls
         $d=[$hc|Audio]
         binddl  = , F8, $d toggle mute output , exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
-        binddl  = , XF86AudioMute,$d  toggle mute output, exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
+        ### binddl  = , XF86AudioMute,$d  toggle mute output, exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
         binddel = , F9, $d decrease volume , exec, $scrPath/volumecontrol.sh -o d # decrease volume
         binddel = , F10, $d increase volume , exec, $scrPath/volumecontrol.sh -o i # increase volume
         binddl  = , XF86AudioMicMute,$d un/mute microphone  , exec, $scrPath/volumecontrol.sh -i m # toggle microphone mute
