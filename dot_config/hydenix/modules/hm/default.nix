@@ -22,6 +22,12 @@
 
     lockscreen.hyprlock = false;
 
+    screenshots = {
+      enable = true;
+      grim.enable = true;
+      slurp.enable = true;
+    };
+
     hyprland = {
       extraConfig = ''
         exec-once = kanshi -c ~/.config/kanshi/config

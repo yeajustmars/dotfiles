@@ -8,10 +8,13 @@
     chezmoi
     clang
     clj-kondo
+    clojure
     gcc
     gh
     ghostty
     git
+    google-chrome
+    google-cloud-sdk
     gnupg
     hypridle
     hyprlock
@@ -33,12 +36,14 @@
     pkg-config
     ripgrep
     rustup
+    slack
     spicetify-cli
     spotify
     sqlite
     starship
     tmux
     tree
+    wl-clipboard
   ];
 }
 
