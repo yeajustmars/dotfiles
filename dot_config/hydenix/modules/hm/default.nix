@@ -18,14 +18,29 @@
   # hydenix home-manager options go here
   hydenix.hm = {
     enable = true;
+    theme.active = "Catppuccin Mocha";
 
-  #hyprland.extraConfig = ''
-  #  exec-once = kanshi -c ~/.config/kanshi/config
-  #'';
+    lockscreen.hyprlock = false;
 
-  #hyprland.keybindings.extraConfig = ''
-  #  bind = $mainMod SHIFT, K, exec,hyprctl dispatch exec kanshictl reload
-  #'';
+    hyprland = {
+      extraConfig = ''
+        exec-once = kanshi -c ~/.config/kanshi/config
+      '';
+
+      keybindings.extraConfig = ''
+        bind = $mainMod SHIFT, K, exec,hyprctl dispatch exec kanshictl reload
+
+        $hc=Hardware Controls
+        $d=[$hc|Audio]
+        binddl  = , F8, $d toggle mute output , exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
+        binddl  = , XF86AudioMute,$d  toggle mute output, exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
+        binddel = , F9, $d decrease volume , exec, $scrPath/volumecontrol.sh -o d # decrease volume
+        binddel = , F10, $d increase volume , exec, $scrPath/volumecontrol.sh -o i # increase volume
+        binddl  = , XF86AudioMicMute,$d un/mute microphone  , exec, $scrPath/volumecontrol.sh -i m # toggle microphone mute
+        binddel = , XF86AudioLowerVolume, $d decrease volume , exec, $scrPath/volumecontrol.sh -o d # decrease volume
+        binddel = , XF86AudioRaiseVolume, $d increase volume , exec, $scrPath/volumecontrol.sh -o i # increase volume
+      '';
+    };
 
   };
 }

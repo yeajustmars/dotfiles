@@ -27,7 +27,10 @@
   ];
 
   # If enabling NVIDIA, you will be prompted to configure hardware.nvidia
-  boot.kernelParams = [ "nvidia.NVreg_PreserveVideoMemoryAllocations=1" ];
+  boot.kernelParams = [
+    "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
+    "nvidia_drm.fbdev=1"
+  ];
   hardware.nvidia = {
     open = true; # For newer cards, you may want open drivers
     prime = { # For hybrid graphics (laptops), configure PRIME:
@@ -47,6 +50,12 @@
   services.blueman.enable = true;
 
   services.power-profiles-daemon.enable = true;
+  services.displayManager.sddm.enable = true;
+  services.displayManager.sddm.wayland.enable = true;
+
+  services.desktopManager.plasma6.enable = true;
+
+  programs.hyprland.withUWSM = lib.mkForce false;
 
   # Home Manager Configuration - manages user-specific configurations (dotfiles, themes, etc.)
   home-manager = {
