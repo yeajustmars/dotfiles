@@ -49,6 +49,8 @@
     nvidiaSettings = true;
   };
 
+  programs.hyprland.withUWSM = lib.mkForce false;
+
   hardware.bluetooth.enable = true;
   services.blueman.enable = true;
 
@@ -57,8 +59,6 @@
   services.displayManager.sddm.wayland.enable = true;
 
   services.desktopManager.plasma6.enable = true;
-
-  programs.hyprland.withUWSM = lib.mkForce false;
 
   environment.variables = {
     PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
