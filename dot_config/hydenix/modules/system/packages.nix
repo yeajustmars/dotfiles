@@ -44,6 +44,8 @@
     starship
     tmux
     tree
+    unzip
+    wayland
     wl-clipboard
   ];
 }
