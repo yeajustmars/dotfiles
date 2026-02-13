@@ -101,7 +101,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-export PATH="$PATH:/home/mars/bin:/home/mars/.cargo/bin"
+export PATH="$PATH:/home/mars/.cargo/bin"
 
 export RUST_ENV_IS_DEV="true"
 
