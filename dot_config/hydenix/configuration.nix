@@ -6,8 +6,11 @@
     # hydenix inputs - Required modules, don't modify unless you know what you're doing
     inputs.hydenix.inputs.home-manager.nixosModules.home-manager
     inputs.hydenix.nixosModules.default
-    ./hardware-configuration.nix # Auto-generated hardware config
-    ./modules/system # Your custom system modules
+    # Auto-generated hardware config
+    ./hardware-configuration.nix
+    # Your custom system modules
+    ./modules/system/fonts.nix
+    ./modules/system/packages.nix
 
     # Hardware Configuration - Uncomment lines that match your hardware
     # Run `lshw -short` or `lspci` to identify your hardware
@@ -57,6 +60,13 @@
 
   programs.hyprland.withUWSM = lib.mkForce false;
 
+  environment.variables = {
+    PKG_CONFIG_PATH = "${pkgs.openssl.dev}/lib/pkgconfig";
+    OPENSSL_DIR = "${pkgs.openssl.dev}";
+    OPENSSL_LIB_DIR = "${pkgs.openssl.out}/lib";
+    OPENSSL_INCLUDE_DIR = "${pkgs.openssl.dev}/include";
+  };
+
   # Home Manager Configuration - manages user-specific configurations (dotfiles, themes, etc.)
   home-manager = {
     useGlobalPkgs = true;
@@ -69,7 +79,8 @@
       {
         imports = [
           inputs.hydenix.homeModules.default
-          ./modules/hm # Your custom home-manager modules (configure hydenix.hm here!)
+          # Your custom home-manager modules (configure hydenix.hm here!)
+          ./modules/hm
         ];
       };
   };

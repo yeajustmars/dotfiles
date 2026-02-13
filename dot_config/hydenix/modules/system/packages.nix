@@ -30,6 +30,7 @@
     luajit
     maven
     neovim
+    nixd
     nodejs_24
     openssh
     openssl
