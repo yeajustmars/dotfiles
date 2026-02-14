@@ -103,6 +103,8 @@ fi
 
 export PATH="$PATH:/home/mars/.cargo/bin"
 
+eval "$(starship init bash)"
+
 export RUST_ENV_IS_DEV="true"
 
 CARGO_BIN="$HOME/.cargo/env"
