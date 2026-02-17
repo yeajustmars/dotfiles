@@ -18,9 +18,8 @@
   # hydenix home-manager options go here
   hydenix.hm = {
     enable = true;
-    theme.active = "Catppuccin Mocha";
-
-    lockscreen.hyprlock = false;
+    #theme.active = "Catppuccin Mocha";
+    theme.active = "One Dark";
 
     screenshots = {
       enable = true;
@@ -28,7 +27,24 @@
       slurp.enable = true;
     };
 
+    lockscreen.hyprlock = false;
+
     hyprland = {
+      hypridle = {
+        enable = true;
+        extraConfig = ''
+          general {
+            after_sleep_cmd = hyprctl dispatch dpms on
+          }
+
+          listener {
+              timeout = 600
+              on-timeout = hyprctl dispatch dpms off
+              on-resume = hyprctl dispatch dpms on
+          }
+        '';
+      };
+
       extraConfig = ''
         exec-once = kanshi -c ~/.config/kanshi/config
       '';
