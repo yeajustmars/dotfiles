@@ -93,7 +93,7 @@
   # User Account Setup - REQUIRED: Change "hydenix" to your desired username (must match above)
   users.users.mars = {
     isNormalUser = true;
-    initialPassword = "yMPz2wMEeUVKXgBjATwp9g66jU966DE1cWt9ijkkOUqjznMotx"; # SECURITY: Change this password after first login with `passwd`
+    initialPassword = "___"; # SECURITY: Change this password after first login with `passwd`
     extraGroups = [
       "docker"
       "wheel"
