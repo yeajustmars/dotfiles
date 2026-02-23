@@ -1,7 +1,6 @@
 
 alias b="git branch"
 alias cda="cd ~/dev/aurum"
-alias cdc="cd ~/.config"
 {{- if eq .chezmoi.os "linux" }}
 alias cdh="cd ~/.config/hydenix"
 {{- end }}
@@ -30,6 +29,10 @@ alias t="cd $HOME/dev/tectonic"
 alias vi="nvim"
 alias vim="nvim"
 alias z="chezmoi $@"
+
+cdc() {
+  cd "~/.config/$1"
+}
 
 gpush() {
   git push origin "$(git branch --show-current)"
