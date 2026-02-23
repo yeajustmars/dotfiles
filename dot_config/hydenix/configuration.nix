@@ -67,6 +67,11 @@
     OPENSSL_INCLUDE_DIR = "${pkgs.openssl.dev}/include";
   };
 
+  virtualisation.docker.enable = true;
+  networking.hosts = {
+    "192.168.200.200" = [ "local.shorttrack.dev" "services.local.shorttrack.dev" "x.local.shorttrack.dev" ];
+  };
+
   # Home Manager Configuration - manages user-specific configurations (dotfiles, themes, etc.)
   home-manager = {
     useGlobalPkgs = true;
@@ -88,8 +93,9 @@
   # User Account Setup - REQUIRED: Change "hydenix" to your desired username (must match above)
   users.users.mars = {
     isNormalUser = true;
-    initialPassword = "passwd"; # SECURITY: Change this password after first login with `passwd`
+    initialPassword = "yMPz2wMEeUVKXgBjATwp9g66jU966DE1cWt9ijkkOUqjznMotx"; # SECURITY: Change this password after first login with `passwd`
     extraGroups = [
+      "docker"
       "wheel"
       "networkmanager"
       "video"

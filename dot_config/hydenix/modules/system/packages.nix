@@ -14,7 +14,9 @@
     ghostty
     git
     google-chrome
-    google-cloud-sdk
+    (google-cloud-sdk.withExtraComponents ([
+      google-cloud-sdk.components.gke-gcloud-auth-plugin
+    ]))
     gnupg
     hypridle
     hyprlock
@@ -29,6 +31,7 @@
     litecli
     luajit
     maven
+    minikube
     neovim
     nixd
     nodejs_24
