@@ -34,19 +34,21 @@
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "nvidia_drm.fbdev=1"
   ];
-  hardware.nvidia = {
-    open = true; # For newer cards, you may want open drivers
-    prime = { # For hybrid graphics (laptops), configure PRIME:
-      #amdBusId = "PCI:0:2:0"; # Run `lspci | grep VGA` to get correct bus IDs
-      #intelBusId = "PCI:0:2:0"; # if you have intel graphics
-      #nvidiaBusId = "PCI:1:0:0";
-      nvidiaBusId = "PCI:01:00.0";
 
-      offload.enable = false; # Or disable PRIME offloading if you don't care
-    };
+  hardware.nvidia = {
+    open = false; # Stick to proprietary drivers for stable sleep
     modesetting.enable = true;
     powerManagement.enable = true;
     nvidiaSettings = true;
+    prime = {
+      amdBusId = "PCI:5:0:0";
+      nvidiaBusId = "PCI:1:0:0";
+      # Choose ONE mode:
+      sync.enable = true; # (Recommended if you leave the external monitor plugged in)
+      # OR offload mode (Better battery life, but can be finicky with external ports):
+      # offload.enable = true;
+      # offload.enableOffloadCmd = true;
+    };
   };
 
   programs.hyprland.withUWSM = lib.mkForce false;

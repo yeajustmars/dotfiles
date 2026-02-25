@@ -18,8 +18,8 @@
   # hydenix home-manager options go here
   hydenix.hm = {
     enable = true;
-    #theme.active = "Catppuccin Mocha";
-    theme.active = "One Dark";
+    theme.active = "Catppuccin Mocha";
+    #theme.active = "One Dark";
 
     screenshots = {
       enable = true;
@@ -55,18 +55,25 @@
       };
     };
 
-    lockscreen.hyprlock = false;
+    lockscreen.hyprlock = true;
 
     hyprland = {
       hypridle = {
         enable = true;
         extraConfig = ''
           general {
+            lock_cmd = pidof hyprlock || hyprlock
+            before_sleep_cmd = loginctl lock-session
             after_sleep_cmd = hyprctl dispatch dpms on
           }
 
           listener {
-              timeout = 600
+            timeout = 30
+            on-timeout = loginctl lock-session
+          }
+
+          listener {
+              timeout = 60
               on-timeout = hyprctl dispatch dpms off
               on-resume = hyprctl dispatch dpms on
           }
@@ -78,6 +85,11 @@
       '';
 
       keybindings.extraConfig = ''
+        $TERMINAL = kitty
+        $EDITOR = nvim
+        $BROWSER = firefox
+        $EXPLORER = dolphin
+
         bind = $mainMod SHIFT, K, exec,hyprctl dispatch exec kanshictl reload
 
         $hc=Hardware Controls

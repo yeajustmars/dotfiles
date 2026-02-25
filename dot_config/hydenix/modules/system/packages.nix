@@ -38,6 +38,7 @@
     openssh
     openssl
     pkg-config
+    redis
     ripgrep
     rustup
     slack
