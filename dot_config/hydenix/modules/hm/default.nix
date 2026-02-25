@@ -44,6 +44,7 @@
           font_size 8.0
           window_padding_width 25
           cursor_trail 1
+          scrollback_lines 40000
 
           # Themes can override any settings in this file
           #include theme.conf
