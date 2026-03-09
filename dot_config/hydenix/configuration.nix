@@ -41,10 +41,11 @@
     powerManagement.enable = true;
     nvidiaSettings = true;
     prime = {
-      amdBusId = "PCI:5:0:0";
+      amdgpuBusId = "PCI:5:0:0";
       nvidiaBusId = "PCI:1:0:0";
       # Choose ONE mode:
       sync.enable = true; # (Recommended if you leave the external monitor plugged in)
+      offload.enable = false;
       # OR offload mode (Better battery life, but can be finicky with external ports):
       # offload.enable = true;
       # offload.enableOffloadCmd = true;

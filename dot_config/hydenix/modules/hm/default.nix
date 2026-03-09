@@ -55,30 +55,31 @@
       };
     };
 
-    lockscreen.hyprlock = true;
+    #lockscreen.hyprlock = true;
 
     hyprland = {
-      hypridle = {
-        enable = true;
-        extraConfig = ''
-          general {
-            lock_cmd = pidof hyprlock || hyprlock
-            before_sleep_cmd = loginctl lock-session
-            after_sleep_cmd = hyprctl dispatch dpms on
-          }
-
-          listener {
-            timeout = 30
-            on-timeout = loginctl lock-session
-          }
-
-          listener {
-              timeout = 60
-              on-timeout = hyprctl dispatch dpms off
-              on-resume = hyprctl dispatch dpms on
-          }
-        '';
-      };
+      hypridle.enable = false;
+      #hypridle = {
+      #  enable = true;
+      #  extraConfig = ''
+      #    general {
+      #      lock_cmd = pidof hyprlock || hyprlock
+      #      before_sleep_cmd = loginctl lock-session
+      #      after_sleep_cmd = hyprctl dispatch dpms on
+      #    }
+      #
+      #    listener {
+      #      timeout = 600 # 10 minutes
+      #      on-timeout = loginctl lock-session
+      #    }
+      #
+      #    listener {
+      #        timeout = 2700 # 45 minutes
+      #        on-timeout = hyprctl dispatch dpms off
+      #        on-resume = hyprctl dispatch dpms on
+      #    }
+      #  '';
+      #};
 
       extraConfig = ''
         exec-once = kanshi -c ~/.config/kanshi/config
@@ -101,6 +102,9 @@
         binddl  = , XF86AudioMicMute,$d un/mute microphone  , exec, $scrPath/volumecontrol.sh -i m # toggle microphone mute
         binddel = , XF86AudioLowerVolume, $d decrease volume , exec, $scrPath/volumecontrol.sh -o d # decrease volume
         binddel = , XF86AudioRaiseVolume, $d increase volume , exec, $scrPath/volumecontrol.sh -o i # increase volume
+
+        # Take screenshot
+        bind = , F3, exec, grim
       '';
     };
 
