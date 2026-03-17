@@ -8,14 +8,7 @@ k9s:
   noExitOnCtrlC: false
   portForwardAddress: localhost
   ui:
-    #skin: catppuccin-mocha
-    #skin: catppuccin-macchiato
-    #skin: catppuccin-frappe
-    #skin: catppuccin-latte
-    #skin: catppuccin-mocha-transparent
-    #skin: catppuccin-macchiato-transparent
-    #skin: catppuccin-frappe-transparent
-    #skin: catppuccin-latte-transparent
+    skin: one-dark
     enableMouse: false
     headless: false
     logoless: false
@@ -39,8 +32,8 @@ k9s:
       namespaces: []
       labels: {}
   logger:
-    tail: 100
-    buffer: 5000
+    tail: 1000
+    buffer: 10000
     sinceSeconds: -1
     textWrap: false
     disableAutoscroll: false
