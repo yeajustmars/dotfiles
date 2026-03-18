@@ -67,12 +67,12 @@
           }
 
           listener {
-            timeout = 10 # seconds
+            timeout = 600 # 10 minutes in seconds
             on-timeout = loginctl lock-session
           }
 
           listener {
-              timeout = 15 # seconds
+              timeout = 1200 # 20 minutes in seconds
               on-timeout = hyprctl dispatch dpms off
               on-resume = hyprctl dispatch dpms on && sleep 2 && kanshictl reload
           }
@@ -81,6 +81,8 @@
 
       extraConfig = ''
         exec-once = kanshi -c ~/.config/kanshi/config
+        exec-once = bluetoothctl power on
+        exec-once = sleep 2 && bluetoothctl connect C9:26:02:27:F6:6C # Force `MX Master 3` mouse
       '';
 
       keybindings.extraConfig = ''
