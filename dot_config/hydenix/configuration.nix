@@ -33,6 +33,7 @@
   boot.kernelParams = [
     "nvidia.NVreg_PreserveVideoMemoryAllocations=1"
     "nvidia_drm.fbdev=1"
+    "usbcore.autosuspend=-1"
   ];
 
   hardware.nvidia = {
@@ -44,17 +45,32 @@
       amdgpuBusId = "PCI:5:0:0";
       nvidiaBusId = "PCI:1:0:0";
       # Choose ONE mode:
-      sync.enable = true; # (Recommended if you leave the external monitor plugged in)
-      offload.enable = false;
+      ## Option 1: the following 2 lines
+      #sync.enable = true; # (Recommended if you leave the external monitor plugged in)
+      #offload.enable = false;
       # OR offload mode (Better battery life, but can be finicky with external ports):
-      # offload.enable = true;
-      # offload.enableOffloadCmd = true;
+      ## Option 2: the following 3 lines
+      sync.enable = false;
+      offload.enable = true;
+      offload.enableOffloadCmd = true;
     };
   };
 
   programs.hyprland.withUWSM = lib.mkForce false;
 
-  hardware.bluetooth.enable = true;
+  hardware.bluetooth = {
+    enable = true;
+    settings = {
+      General = {
+        FastConnectable = true;
+      };
+    };
+  };
+
+  powerManagement.resumeCommands = ''
+    systemctl restart bluetooth
+  '';
+
   services.blueman.enable = true;
 
   services.power-profiles-daemon.enable = true;

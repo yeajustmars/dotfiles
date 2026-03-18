@@ -18,8 +18,7 @@
   # hydenix home-manager options go here
   hydenix.hm = {
     enable = true;
-    theme.active = "Catppuccin Mocha";
-    #theme.active = "One Dark";
+    theme.active = "1-Bit";
 
     screenshots = {
       enable = true;
@@ -55,31 +54,30 @@
       };
     };
 
-    #lockscreen.hyprlock = true;
+    lockscreen.hyprlock = true;
 
     hyprland = {
-      hypridle.enable = false;
-      #hypridle = {
-      #  enable = true;
-      #  extraConfig = ''
-      #    general {
-      #      lock_cmd = pidof hyprlock || hyprlock
-      #      before_sleep_cmd = loginctl lock-session
-      #      after_sleep_cmd = hyprctl dispatch dpms on
-      #    }
-      #
-      #    listener {
-      #      timeout = 600 # 10 minutes
-      #      on-timeout = loginctl lock-session
-      #    }
-      #
-      #    listener {
-      #        timeout = 2700 # 45 minutes
-      #        on-timeout = hyprctl dispatch dpms off
-      #        on-resume = hyprctl dispatch dpms on
-      #    }
-      #  '';
-      #};
+      hypridle = {
+        enable = true;
+        extraConfig = ''
+          general {
+            lock_cmd = pidof hyprlock || hyprlock
+            before_sleep_cmd = loginctl lock-session
+            after_sleep_cmd = hyprctl dispatch dpms on && sleep 2 && kanshictl reload
+          }
+
+          listener {
+            timeout = 10 # seconds
+            on-timeout = loginctl lock-session
+          }
+
+          listener {
+              timeout = 15 # seconds
+              on-timeout = hyprctl dispatch dpms off
+              on-resume = hyprctl dispatch dpms on && sleep 2 && kanshictl reload
+          }
+        '';
+      };
 
       extraConfig = ''
         exec-once = kanshi -c ~/.config/kanshi/config
