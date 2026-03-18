@@ -41,7 +41,7 @@
           italic_font auto
           bold_italic_font auto
           enable_audio_bell no
-          font_size 8.0
+          font_size 8.5
           window_padding_width 25
           cursor_trail 1
           scrollback_lines 40000
