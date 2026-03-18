@@ -12,6 +12,7 @@
     ./startup.nix
     ./terminals.nix
     ./theme.nix
+    ./windows.nix
   ];
 
   hydenix.hm.enable = true;
