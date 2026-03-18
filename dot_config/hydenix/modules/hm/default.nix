@@ -86,25 +86,47 @@
       '';
 
       keybindings.extraConfig = ''
-        $TERMINAL = kitty
-        $EDITOR = nvim
-        $BROWSER = firefox
-        $EXPLORER = dolphin
+        # Main Controls
+        # --------------------------------------------------------------------
+        unbind = $mainMod, B
+        unbind = $mainMod, Return
+        unbind = $mainMod, E
+        bind = $mainMod, B, exec, firefox
+        bind = $mainMod, Return, exec, kitty
+        bind = $mainMod, E, exec, dolphin
 
-        bind = $mainMod SHIFT, K, exec,hyprctl dispatch exec kanshictl reload
+        bind = $mainMod SHIFT, K, exec, hyprctl dispatch exec kanshictl reload
 
+        # Unbind all function keys
+        # --------------------------------------------------------------------
+        unbind = , XF86AudioMute
+        unbind = , XF86AudioLowerVolume
+        unbind = , XF86AudioRaiseVolume
+        unbind = , XF86AudioMicMute
+        unbind = , F1
+        unbind = , F2
+        unbind = , F3
+        unbind = , F4
+        unbind = , F5
+        unbind = , F6
+        unbind = , F7
+        unbind = , F8
+        unbind = , F9
+        unbind = , F10
+        unbind = , F11
+        unbind = , F12
+
+        # Screen Controls
+        # --------------------------------------------------------------------
+        bind = , F3, exec, grim
+
+        # Audio Controls
+        # --------------------------------------------------------------------
         $hc=Hardware Controls
         $d=[$hc|Audio]
-        binddl  = , F8, $d toggle mute output , exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
-        ### binddl  = , XF86AudioMute,$d  toggle mute output, exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
-        binddel = , F9, $d decrease volume , exec, $scrPath/volumecontrol.sh -o d # decrease volume
-        binddel = , F10, $d increase volume , exec, $scrPath/volumecontrol.sh -o i # increase volume
-        binddl  = , XF86AudioMicMute,$d un/mute microphone  , exec, $scrPath/volumecontrol.sh -i m # toggle microphone mute
-        binddel = , XF86AudioLowerVolume, $d decrease volume , exec, $scrPath/volumecontrol.sh -o d # decrease volume
-        binddel = , XF86AudioRaiseVolume, $d increase volume , exec, $scrPath/volumecontrol.sh -o i # increase volume
-
-        # Take screenshot
-        bind = , F3, exec, grim
+        binddl  = , F8,  $d toggle mute output, exec, $scrPath/volumecontrol.sh -o m # toggle audio mute
+        binddel = , F9,  $d decrease volume,    exec, $scrPath/volumecontrol.sh -o d # decrease volume
+        binddel = , F10, $d increase volume,    exec, $scrPath/volumecontrol.sh -o i # increase volume
       '';
     };
 
