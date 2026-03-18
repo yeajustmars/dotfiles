@@ -13,7 +13,7 @@
     # Syntax is: opacity [active] [inactive], class:^(app_class)$
 
     windowrulev2 = opacity 0.95 override 0.85 override, class:^(firefox)$
-    windowrulev2 = opacity 0.92 override 0.7 override, class:^(kitty)$
+    windowrulev2 = opacity 0.92 override 0.85 override, class:^(kitty)$
     windowrulev2 = opacity 0.95 override 0.8 override, class:^(org.kde.dolphin)$
 
   '';
