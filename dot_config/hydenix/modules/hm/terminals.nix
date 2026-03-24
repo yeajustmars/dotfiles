@@ -1,32 +1,13 @@
 { config, pkgs, ... }:
 
 {
-    hydenix.hm.terminals = {
-      enable = true;
-      kitty = {
-        enable = true;
-        configText = ''
-          # This is the configuration file for kitty terminal
-          # For more information, see https://sw.kovidgoyal.net/kitty/conf.html
-          # For your custom configurations, put it in ./kitty.conf
+  hydenix.hm.terminals.enable = true;
 
-          font_family FiraCode Nerd Font Mono Medium
-          bold_font auto
-          italic_font auto
-          bold_italic_font auto
-          enable_audio_bell no
-          font_size 8.5
-          window_padding_width 25
-          cursor_trail 1
-          scrollback_lines 40000
-
-          # Themes can override any settings in this file
-          #include theme.conf
-          #background_opacity 0.60
-          #hide_window_decorations yes
-          #confirm_os_window_close 0
-        '';
-      };
+  home.file = {
+    ".config/kitty/kitty.conf" = {
+      source = ./kitty.conf;
+      force = true;
+      mutable = true;
     };
-
+  };
 }
