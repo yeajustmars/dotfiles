@@ -1,7 +1,7 @@
 { config, pkgs, ...}:
 
 {
-  hydenix.hm.theme.active = "Catppuccin Mocha";
+  hydenix.hm.theme.active = "Cat Latte";
 
   # 1-Bit
   # AbyssGreen

@@ -10,7 +10,7 @@
           # For more information, see https://sw.kovidgoyal.net/kitty/conf.html
           # For your custom configurations, put it in ./kitty.conf
 
-          font_family FiraCode Nerd Font Mono
+          font_family FiraCode Nerd Font Mono Medium
           bold_font auto
           italic_font auto
           bold_italic_font auto
