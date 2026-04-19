@@ -90,6 +90,11 @@ source ~/.config/env.sh
 source ~/.config/format.sh
 source ~/.config/aliases.sh
 
+BOILERMAKER_COMPLETION_FILE="~/.config/boilermaker/completion.bash"
+if [ -f "$BOILERMAKER_COMPLETION_FILE" ]; then
+  source "$BOILERMAKER_COMPLETION_FILE"
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
