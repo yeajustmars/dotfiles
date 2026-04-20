@@ -19,14 +19,14 @@ source ~/.config/env.sh
 source ~/.config/format.sh
 source ~/.config/aliases.sh
 
+autoload -Uz compinit bashcompinit
+compinit
+bashcompinit
+
 BOILERMAKER_COMPLETION_FILE="~/.config/boilermaker/completion.bash"
 if [ -f "$BOILERMAKER_COMPLETION_FILE" ]; then
   source "$BOILERMAKER_COMPLETION_FILE"
 fi
-
-autoload -Uz compinit bashcompinit
-compinit
-bashcompinit
 
 source <(kubectl completion zsh)
 compdef kubecolor=kubectl
