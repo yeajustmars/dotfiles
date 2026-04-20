@@ -19,11 +19,6 @@ source ~/.config/env.sh
 source ~/.config/format.sh
 source ~/.config/aliases.sh
 
-BOILERMAKER_COMPLETION_FILE="~/.config/boilermaker/completion.zsh"
-if [ -f "$BOILERMAKER_COMPLETION_FILE" ]; then
-  source "$BOILERMAKER_COMPLETION_FILE"
-fi
-
 autoload -Uz compinit bashcompinit
 compinit
 bashcompinit
@@ -32,6 +27,11 @@ source <(kubectl completion zsh)
 compdef kubecolor=kubectl
 
 source "$ST_ROOT_DIR/st-cli/$ST_CLI_VERSION/autocomplete.bash"
+
+BOILERMAKER_COMPLETION_FILE="${HOME}/.config/boilermaker/completion.zsh"
+if [ -f "$BOILERMAKER_COMPLETION_FILE" ]; then
+  source "$BOILERMAKER_COMPLETION_FILE"
+fi
 
 eval "$(starship init zsh)"
 
