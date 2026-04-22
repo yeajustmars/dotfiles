@@ -56,6 +56,7 @@ require "autocmds"
 
 vim.schedule(function()
   require "mappings"
+  require "commands"
 end)
 
 vim.g.nvim_tree_respect_buf_cwd = 1
