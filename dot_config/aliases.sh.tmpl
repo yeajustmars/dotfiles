@@ -11,9 +11,9 @@ alias coma="git commit -a"
 alias dev="cd $HOME/dev"
 alias ea="nvim ~/.config/alacritty/alacritty.toml"
 {{- if eq .chezmoi.os "linux" }}
-{{- if eq .chezmoi.os "darwin" }}
 alias ek="nvim ~/.config/kitty/kitty.conf"
 {{- end }}
+{{- if eq .chezmoi.os "darwin" }}
 alias ep="nvim /etc/nix-darwin/modules/packages.nix"
 {{- end }}
 alias g="gcloud "
