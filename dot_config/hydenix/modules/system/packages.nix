@@ -9,10 +9,13 @@
     clang
     clj-kondo
     clojure
+    dig
     gcc
     gh
     ghostty
+    gimp-with-plugins
     git
+    git-lfs
     google-chrome
     (google-cloud-sdk.withExtraComponents ([
       google-cloud-sdk.components.gke-gcloud-auth-plugin
@@ -27,6 +30,7 @@
     kitty
     kubectl
     kubecolor
+    kubernetes-helm
     libiconv
     litecli
     luajit

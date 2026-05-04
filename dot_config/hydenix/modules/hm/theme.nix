@@ -1,7 +1,7 @@
 { config, pkgs, ...}:
 
 {
-  hydenix.hm.theme.active = "Cat Latte";
+  hydenix.hm.theme.active = "One Dark";
 
   # 1-Bit
   # AbyssGreen
