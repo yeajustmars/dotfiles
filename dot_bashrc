@@ -107,6 +107,9 @@ if ! shopt -oq posix; then
 fi
 
 export PATH="$PATH:$HOME/.cargo/bin:$HOME/go/bin"
+if [[ -n "$ST_ROOT_DIR" && -d "$ST_ROOT_DIR" ]] then;
+  export PATH="$PATH:$ST_ROOT_DIR/.st-bin"
+fi
 
 eval "$(starship init bash)"
 
