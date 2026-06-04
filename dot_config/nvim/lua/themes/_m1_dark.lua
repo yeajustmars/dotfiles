@@ -5,7 +5,7 @@ local M = {}
 
 M.base_30 = {
   white = "#E4F0FB",
-  ogwhite = "#93C054",
+  ogwhite = "#93b054",
   black = "#1b1e28",
   darker_black = "#171922",
   black2 = "#222633",
