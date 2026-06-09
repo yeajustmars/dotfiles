@@ -129,6 +129,17 @@ env-sync() {
   chezmoi apply -v
 }
 
+if command -v rg &> /dev/null; then
+  sg() {
+    cwd=$(pwd)
+
+    cd $ST_ROOT_DIR
+    rg "$1" -g '!docs/' -g '!**st-docs**' -g '!**target**' -g '!**node_modules**' -g '!**.git**'
+
+    cd $cwd
+  }
+fi
+
 {{- if eq .chezmoi.os "darwin" }}
 
 borders_config_light=$(cat <<EOF
