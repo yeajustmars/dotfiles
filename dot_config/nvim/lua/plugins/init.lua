@@ -169,7 +169,6 @@ return {
     end,
     ft = { "markdown" },
   },
-
   {
     "ray-x/go.nvim",
     dependencies = {  -- optional packages
@@ -178,6 +177,7 @@ return {
       -- { "nvim-treesitter/nvim-treesitter", branch = 'main' } -- optional for master version
     },
     opts = function()
+
       require("go").setup(opts)
       local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
       vim.api.nvim_create_autocmd("BufWritePre", {
