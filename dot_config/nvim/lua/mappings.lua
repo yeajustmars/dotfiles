@@ -49,7 +49,12 @@ map("n", "<C-j>", "<cmd>ALENextWrap<CR>")
 map("n", "<C-k>", "<cmd>ALEPreviousWrap<CR>")
 
 local tele = require('telescope.builtin')
-vim.keymap.set('n', '<leader>ff', tele.find_files, { desc = 'Telescope find files' })
-vim.keymap.set('n', '<leader>fg', tele.live_grep, { desc = 'Telescope live grep' })
-vim.keymap.set('n', '<leader>fb', tele.buffers, { desc = 'Telescope buffers' })
-vim.keymap.set('n', '<leader>fh', tele.help_tags, { desc = 'Telescope help tags' })
+map('n', '<leader>ff', tele.find_files, { desc = 'Telescope find files' })
+map('n', '<leader>fg', tele.live_grep, { desc = 'Telescope live grep' })
+map('n', '<leader>fb', tele.buffers, { desc = 'Telescope buffers' })
+map('n', '<leader>fh', tele.help_tags, { desc = 'Telescope help tags' })
+
+-- Toggle inlay hints with <leader>uh
+map('n', '<leader>uh', function()
+  vim.lsp.inlay_hint.enable(not vim.lsp.inlay_hint.is_enabled())
+end, { desc = 'Toggle Inlay Hints' })
