@@ -33,7 +33,7 @@ if [ -f "$BOILERMAKER_COMPLETION_FILE" ]; then
   source "$BOILERMAKER_COMPLETION_FILE"
 fi
 
-AURUM_COMPLETION_FILE="${HOME}/.aurum/completion.zsh"
+AURUM_COMPLETION_FILE="${HOME}/.config/aurum/completion.zsh"
 if [ -f "$AURUM_COMPLETION_FILE" ]; then
   source "$AURUM_COMPLETION_FILE"
 fi
