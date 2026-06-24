@@ -33,6 +33,11 @@ if [ -f "$BOILERMAKER_COMPLETION_FILE" ]; then
   source "$BOILERMAKER_COMPLETION_FILE"
 fi
 
+AURUM_COMPLETION_FILE="${HOME}/.aurum/completion.zsh"
+if [ -f "$AURUM_COMPLETION_FILE" ]; then
+  source "$AURUM_COMPLETION_FILE"
+fi
+
 eval "$(starship init zsh)"
 
 # The next line updates PATH for the Google Cloud SDK.
