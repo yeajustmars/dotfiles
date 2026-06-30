@@ -5,7 +5,6 @@ alias cdc="cd ~/.config"
 {{- if eq .chezmoi.os "linux" }}
 alias cdh="cd ~/.config/hydenix"
 {{- end }}
-alias cdm="cd ~/dev/mesodb"
 alias cdgo="cd ~/dev/go"
 alias cdp="cd ~/dev/pickaxe/"
 alias com="git checkout main"
@@ -202,3 +201,26 @@ yr() {
 }
 
 {{- end }}
+
+cdm() {
+  local pkg="$1"
+
+  if [ -z "$pkg" ]; then
+    cd ~/dev/mesodb
+  else
+    if [[ "$pkg" != "mesodb-"* ]]; then
+      pkg="mesodb-${pkg}"
+    fi
+
+    local dir="$HOME/dev/mesodb/$pkg"
+    if [ -d "$dir" ]; then
+      cd "$dir"
+    else
+      echo -e "$ERROR Directory '$dir' does not exist."
+      return 1
+    fi
+  fi
+}
+
+cdm bench
+ls
