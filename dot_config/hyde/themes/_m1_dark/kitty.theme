@@ -1,0 +1,76 @@
+$HOME/.config/kitty/theme.conf|killall -SIGUSR1 kitty
+
+## name:   Poimandres Custom (Base46) 🌌
+## author: Modified from @kayuxx & @siduck (Poimandres)
+## blurb:  A sleek, clean dark theme translated from Neovim base46
+
+# The basic colors
+foreground            #E4F0FB
+background            #1B1E28
+selection_foreground  #1B1E28
+selection_background  #ADC7FF
+
+# Cursor colors
+cursor                #89DDFF
+cursor_text_color     #1B1E28
+
+# URL underline color when hovering with mouse
+url_color             #92E0FF
+
+# Kitty window border colors
+active_border_color   #89DDFF
+inactive_border_color #2B3040
+bell_border_color     #D0679D
+
+# OS Window titlebar colors
+wayland_titlebar_color system
+macos_titlebar_color system
+
+# Tab bar colors
+active_tab_foreground   #1B1E28
+active_tab_background   #89DDFF
+inactive_tab_foreground #A6ACCD
+inactive_tab_background #171922
+tab_bar_background      #171922
+
+# Colors for marks (marked text in the terminal)
+mark1_foreground #1B1E28
+mark1_background #89DDFF
+mark2_foreground #1B1E28
+mark2_background #A6ACCD
+mark3_foreground #1B1E28
+mark3_background #5FB3A1
+
+# The 16 terminal colors
+
+# black
+color0 #222633
+color8 #48506A
+
+# red
+color1 #D0679D
+color9 #FCC5E9
+
+# green
+color2  #5FB3A1
+color10 #71BBAB
+
+# yellow
+color3  #FFFAC2
+color11 #FFF691
+
+# blue
+color4  #89DDFF
+color12 #ADC7FF
+
+# magenta
+color5  #A6ACCD
+color13 #B6D7F4
+
+# cyan
+color6  #92E0FF
+color14 #CFCFF5
+
+# white
+color7  #657096
+color15 #E4F0FB
