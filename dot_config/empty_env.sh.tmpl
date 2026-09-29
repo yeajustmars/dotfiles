@@ -23,7 +23,15 @@ export ST_PICKAXE_ENABLE_UNSAFE_EXPERIMENTAL_TECTONIC_FEATURES=true
 
 export PATH=$PATH:$ST_ROOT_DIR/.st-bin
 
-ST_DATA_COMPLETE_PATH_BASH="$ST_ROOT_DIR/st-bin/st-data/completion-bash.sh"
-if [ -f $ST_DATA_COMPLETE_PATH_BASH ]; then
-  source $ST_DATA_COMPLETE_PATH_BASH
+if [ -n "$BASH_VERSION" ]; then
+  ST_DATA_COMPLETE_PATH_BASH="$ST_ROOT_DIR/st-bin/st-data/completion-bash.sh"
+  if [ -f $ST_DATA_COMPLETE_PATH_BASH ]; then
+    source $ST_DATA_COMPLETE_PATH_BASH
+  fi
+elif [ -n "$ZSH_VERSION" ]; then
+  ST_DATA_COMPLETE_PATH_ZSH="$ST_ROOT_DIR/st-bin/st-data/completion-zsh.sh"
+  if [ -f $ST_DATA_COMPLETE_PATH_ZSH ]; then
+    source $ST_DATA_COMPLETE_PATH_ZSH
+  fi
 fi
+
