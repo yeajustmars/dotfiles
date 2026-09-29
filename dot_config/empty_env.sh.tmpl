@@ -25,13 +25,20 @@ export PATH=$PATH:$ST_ROOT_DIR/.st-bin
 
 if [ -n "$ZSH_VERSION" ]; then
   ST_DATA_COMPLETE_PATH_ZSH="$ST_ROOT_DIR/st-bin/st-data/completion-zsh.sh"
-  if [ -f $ST_DATA_COMPLETE_PATH_ZSH ]; then
-    source $ST_DATA_COMPLETE_PATH_ZSH
+  if [ -f "$ST_DATA_COMPLETE_PATH_ZSH" ]; then
+    COMP_DIR="$HOME/.zsh/completions"
+    ZSH_PATH="$COMP_DIR/_st-data"
+    if [ ! -L "$ZSH_PATH" ]; then
+      mkdir -p "$COMP_DIR"
+      ln -sf "$ST_DATA_COMPLETE_PATH_ZSH" "$ZSH_PATH"
+    fi
+    typeset -U fpath
+    fpath=("$COMP_DIR" $fpath)
+    autoload -Uz compinit && compinit
   fi
 elif [ -n "$BASH_VERSION" ]; then
   ST_DATA_COMPLETE_PATH_BASH="$ST_ROOT_DIR/st-bin/st-data/completion-bash.sh"
-  if [ -f $ST_DATA_COMPLETE_PATH_BASH ]; then
-    source $ST_DATA_COMPLETE_PATH_BASH
+  if [ -f "$ST_DATA_COMPLETE_PATH_BASH" ]; then
+    source "$ST_DATA_COMPLETE_PATH_BASH"
   fi
 fi
-
