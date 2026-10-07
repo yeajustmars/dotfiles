@@ -4,7 +4,8 @@ $HOME/.config/kitty/theme.conf|killall -SIGUSR1 kitty
 # The basic colors
 
 foreground              #979eab
-background              #282c34
+# background              #282c34
+background              #1e222a
 selection_foreground    #282c34
 selection_background    #979eab
 
