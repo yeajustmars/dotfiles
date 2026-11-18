@@ -24,7 +24,6 @@ M.base_30 = {
   vibrant_green = "#71bbab",
   nord_blue = "#91B4D5",
   blue = "#89DDFF",
-  -- seablue = "#ADD7FF",
   seablue = "#ADC7FF",
   yellow = "#FFFAC2",
   sun = "#fff691",
