@@ -42,3 +42,9 @@ elif [ -n "$BASH_VERSION" ]; then
     source "$ST_DATA_COMPLETE_PATH_BASH"
   fi
 fi
+
+LENA_COMPLETION="$HOME/.lena/completion.sh"
+if [ -f "$LENA_COMPLETION" ]; then
+  source $LENA_COMPLETION
+fi
+
